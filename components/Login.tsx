@@ -1,14 +1,39 @@
 import { useState } from "react"
+import styled from 'styled-components';
 import Cookies from "universal-cookie"
 import consts from "consts"
+
+const StyledForm = styled.form`
+  background: black;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    * {
+      margin-bottom: 15px;
+    }
+  }
+  button {
+    border: none;
+    border-radius: 0;
+    background: white;
+    padding: 10px 20px;
+    font-weight: bold;
+  }
+`;
 
 const Login = ({ redirectPath }) => {
   const [password, setPassword] = useState("")
 
   return (
     <div>
-      <form>
-        <label className="block">
+      <StyledForm>
+        <label>
           <span>Password</span>
           <input
             type="text"
@@ -30,7 +55,7 @@ const Login = ({ redirectPath }) => {
         >
           Login
         </button>
-      </form>
+      </StyledForm>
     </div>
   )
 }
